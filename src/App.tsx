@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 
 // CSS
 import './App.css';
+
+// Components
 import Menu, { MenuProps } from './components/Menu/Menu';
 import Output from './components/Output/Output';
 
-// Components
 
 function App() {
   // App props
