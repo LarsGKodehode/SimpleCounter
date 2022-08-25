@@ -33,24 +33,24 @@ function Menu(props: MenuProps): ReactElement {
 
   // Props
   const decrementProps = {
-    text: 'decrement',
     handleClick: handleDecrement,
+    text: 'decrement',
     styling: {
       gridArea: 'decrement',
       backgroundColor: 'red',
     },
   };
   const incrementProps = {
-    text: 'increment',
     handleClick: handleIncrement,
+    text: 'increment',
     styling: {
       gridArea: 'increment',
       backgroundColor: 'green',
     },
   };
   const resetProps = {
-    text: 'reset',
     handleClick: handleReset,
+    text: 'reset',
     styling: {
       gridArea: 'reset',
       backgroundColor: 'gray',
