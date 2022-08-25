@@ -1,26 +1,21 @@
-# This workflow does a clean install of node dependencies and build the static files required for project
+# This workflow performs a clean install of Nodejs and yarn. Then builds and deploys the project
 name: Page-Build
 
-# Listners
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-# jobs
 jobs:
   build:
     # specify enviroment
     runs-on: ubuntu-latest
 
-    # steps
     steps:
-      # Checkout repo
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # Setup Node
       - name: Setup Node
         uses: actions/setup-node@v3
         # Options
@@ -30,15 +25,15 @@ jobs:
           # Cache this? What does this actually cache?
           cache: 'npm'
       
-      # Install yarn, do we need this? Can we potentially include this in the cache?
+      # Install yarn. Can we potentially include this in the cache?
       - name: Install yarn
         run : npm install --location=global yarn
 
-      # Install react dependencies? Dependencies should be taken care in th build step
-      - name: Install React seperatly
+      # Install dependencies
+      - name: Install Dependencies
         run: yarn
 
-      # Finially start building the actual project
+      # Finally start building the project
       - name: Build Project
         run: yarn run build
 
@@ -47,5 +42,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # This should correspond to output dir set in vite.config
+          # This should correspond to transpiler output dir
           publish_dir: ./release
