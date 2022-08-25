@@ -17,8 +17,12 @@ function Output(props: OutputProps): ReactElement {
   } = props;
 
   const style: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'center',
+    alignSelf: 'center',
+    width: '5em',
+    textAlign: 'center',
+    padding: '10em',
+    borderRadius: '50%',
+    backgroundColor: 'gray',
   };
 
   return(
