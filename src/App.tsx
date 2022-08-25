@@ -21,8 +21,8 @@ function App() {
 
   // Effects for fancy stuff
   useEffect(() => {
-    setTimeout(() => menuProps.handleIncrement(), 100); // Probably should have extracted this function, this is however a nonsense effect, so I didn't bother
-  }, [count]);
+    setInterval(() => menuProps.handleIncrement(), 1000); // Probably should have extracted this function, this is however a nonsense effect, so I didn't bother
+  }, []);
 
   // Props
   const titleStyle: React.CSSProperties = {
@@ -34,8 +34,8 @@ function App() {
   };
 
   const menuProps: MenuProps = {
-    handleDecrement: () => {setCount(count - 1)},
-    handleIncrement: () => {setCount(count + 1)},
+    handleDecrement: () => {setCount(prev => prev - 1)},
+    handleIncrement: () => {setCount(prev => prev + 1)},
     handleReset: () => {setCount(0)},
   };
 
