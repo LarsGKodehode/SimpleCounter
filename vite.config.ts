@@ -8,4 +8,6 @@ export default defineConfig({
   build: {
     outDir: './release',
   },
+
+  base: '/SimpleCounter',
 })
