@@ -3,6 +3,8 @@ import {
   ReactElement,
   ReactEventHandler
 } from "react";
+
+// Components
 import CustomButton from "../button/CustomButton";
 
 // We handle simple compositions inside here
@@ -20,23 +22,38 @@ function Menu(props: MenuProps): ReactElement {
     handleReset,
   } = props;
 
+  // Menu style
+  const style: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateAreas: `
+      'decrement increment'
+      'reset reset'
+    `,
+  };
+
   // Props
   const decrementProps = {
     text: 'decrement',
     handleClick: handleDecrement,
+    gridArea: 'decrement',
   };
   const incrementProps = {
     text: 'increment',
     handleClick: handleIncrement,
+    gridArea: 'increment',
   };
   const resetProps = {
     text: 'reset',
     handleClick: handleReset,
+    gridArea: 'reset',
   };
+  
   // Component
   return(  
-    <div>
-      <CustomButton {...decrementProps} />
+    <div
+      style={style}
+    >
+      <CustomButton {...decrementProps}/>
       <CustomButton {...incrementProps} />
       <CustomButton {...resetProps} />
     </div>

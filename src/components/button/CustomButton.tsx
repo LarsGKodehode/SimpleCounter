@@ -1,4 +1,8 @@
-import { ReactElement, ReactEventHandler } from "react";
+// Libraries
+import {
+  ReactElement,
+  ReactEventHandler
+} from "react";
 
 interface IconProp {
   /**
@@ -29,12 +33,18 @@ interface CustomButtonProps {
    * Handler for onClick
    */
   handleClick: ReactEventHandler;
+  /**
+   * Optional styling, only used to palce in grid at the moment
+   */
+   gridArea: string;
 };
 
 function CustomButton(props: CustomButtonProps): ReactElement {
   // Get the stuff we want
   const {
     handleClick,
+    text,
+    gridArea,
   } = props;
 
   // Construct style
@@ -43,6 +53,7 @@ function CustomButton(props: CustomButtonProps): ReactElement {
     minHeight: '100px',
     backgroundColor: 'white',
     margin: '2em',
+    gridArea: gridArea,
   };
 
   return(
@@ -50,7 +61,7 @@ function CustomButton(props: CustomButtonProps): ReactElement {
      onClick={(event) => handleClick(event)}
      style={style}
     >
-
+      {text}
     </div>
   );
 };

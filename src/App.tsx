@@ -1,5 +1,5 @@
 // Libraries
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // CSS
 import './App.css';
@@ -16,6 +16,10 @@ function App() {
   const [ count, setCount ] = useState(0);
 
   // Props
+  const titleStyle: React.CSSProperties = {
+    textAlign: 'center',
+  };
+
   const outputProps = {
     count: count,
   };
@@ -29,7 +33,12 @@ function App() {
   // Component
   return (
     <main className="App">
-      <h1>{title.toUpperCase()}</h1>
+      <h1
+       style={titleStyle}
+      >
+        {title.toUpperCase()}
+      </h1>
+
       <Output {...outputProps} />
       <Menu {...menuProps} />
     </main>
