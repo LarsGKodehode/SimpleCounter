@@ -35,8 +35,8 @@ jobs:
         run : npm install --location=global yarn
 
       # Finially start building the actual project
-      - name: Buidl Project
-        run: yarn build
+      - name: Build Project
+        run: yarn run build
 
       # Run external gh-pages script to deploy to branch gh-pages
       - name: Deploy
