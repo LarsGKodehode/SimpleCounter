@@ -1,0 +1,45 @@
+# This workflow does a clean install of node dependencies and build the static files required for project
+name: Page-Build
+
+# Listners
+on:
+  push:
+    branches: [ "main" ]
+  pull_requests:
+    branches: [ "main" ]
+
+# jobs
+jobs:
+  # specify enviroment
+  runs-on: ubuntu-latest
+
+  # steps
+    # Checkout repo
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    # Setup Node
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      # Options
+      with:
+        # Node version
+        node-version: 16.x
+        # Cache this? What does this actually cache?
+        cache: 'npm'
+    
+    # Install yarn, do we need this? Can we potentially include this in the cache?
+    - name: Install yarn
+      run : npm install --location=global yarn
+
+    # Finially start building the actual project
+    - name: Buidl Project
+      run: yarn build
+
+    # Run external gh-pages script to deploy to branch gh-pages
+    - name: Deploy
+      uses: peaciris/actionis-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        # This should correspond to output dir set in vite.config
+        publish_dir: ./release
