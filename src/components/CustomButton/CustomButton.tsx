@@ -42,7 +42,7 @@ interface CustomButtonProps {
   /**
    * Handler for onClick
    */
-  handleClick: ReactEventHandler;
+  handleClick: CallableFunction;
   /**
    * Optional styling, only used to palce in grid at the moment
    */

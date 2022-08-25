@@ -5,13 +5,13 @@ import {
 } from "react";
 
 // Components
-import CustomButton from "../button/CustomButton";
+import CustomButton from "../CustomButton/CustomButton";
 
 // We handle simple compositions inside here
 interface MenuProps {
-  handleDecrement: ReactEventHandler,
-  handleIncrement: ReactEventHandler,
-  handleReset: ReactEventHandler,
+  handleDecrement: CallableFunction,
+  handleIncrement: CallableFunction,
+  handleReset: CallableFunction,
 };
 
 function Menu(props: MenuProps): ReactElement {

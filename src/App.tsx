@@ -1,5 +1,8 @@
 // Libraries
-import React, { useState } from 'react';
+import React, {
+  useState,
+  useEffect,
+} from 'react';
 
 // CSS
 import './App.css';
@@ -16,6 +19,11 @@ function App() {
   // State managemnet
   const [ count, setCount ] = useState(0);
 
+  // Effects for fancy stuff
+  useEffect(() => {
+    setInterval(() => menuProps.handleIncrement(), 1000); // Probably should have extracted this function, this is however a nonsense effect, so I didn't bother
+  }, []);
+
   // Props
   const titleStyle: React.CSSProperties = {
     textAlign: 'center',
@@ -26,9 +34,9 @@ function App() {
   };
 
   const menuProps: MenuProps = {
-    handleDecrement: (event) => {setCount(count - 1)},
-    handleIncrement: (event) => {setCount(count + 1)},
-    handleReset: (event) => {setCount(0)},
+    handleDecrement: () => {setCount(prev => prev - 1)},
+    handleIncrement: () => {setCount(prev => prev + 1)},
+    handleReset: () => {setCount(0)},
   };
 
   // Component
