@@ -40,7 +40,7 @@ jobs:
 
       # Run external gh-pages script to deploy to branch gh-pages
       - name: Deploy
-        uses: peaciris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # This should correspond to output dir set in vite.config
