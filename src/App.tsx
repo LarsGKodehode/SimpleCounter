@@ -11,7 +11,7 @@ import Output from './components/Output/Output';
 
 function App() {
   // App props
-  const title = 'Simple Counter'
+  const title = 'Simple Counter';
 
   // State managemnet
   const [ count, setCount ] = useState(0);
