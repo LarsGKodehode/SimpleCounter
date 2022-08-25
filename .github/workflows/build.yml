@@ -34,6 +34,10 @@ jobs:
       - name: Install yarn
         run : npm install --location=global yarn
 
+      # Install react dependencies? Dependencies should be taken care in th build step
+      - name: Install React seperatly
+        run: yarn
+
       # Finially start building the actual project
       - name: Build Project
         run: yarn run build
