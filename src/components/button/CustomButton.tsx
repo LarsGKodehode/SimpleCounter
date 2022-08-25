@@ -20,6 +20,16 @@ interface IconProp {
   'left';
 };
 
+interface VariableStyling {
+  /**
+   * Custimze a named area to display button in
+   */
+  gridArea: string,
+  /**
+   * Color of button, defaults to parent background color
+   */
+  backgroundColor?: string,
+};
 interface CustomButtonProps {
   /**
    * Text to display inside button
@@ -36,7 +46,7 @@ interface CustomButtonProps {
   /**
    * Optional styling, only used to palce in grid at the moment
    */
-   gridArea: string;
+   styling: VariableStyling;
 };
 
 function CustomButton(props: CustomButtonProps): ReactElement {
@@ -44,16 +54,23 @@ function CustomButton(props: CustomButtonProps): ReactElement {
   const {
     handleClick,
     text,
-    gridArea,
+    styling,
   } = props;
 
   // Construct style
+  // destructure from style prop
+  const {
+    gridArea,
+    backgroundColor,
+  } = styling;
+
   const style: React.CSSProperties = {
-    minWidth: '100px',
-    minHeight: '100px',
-    backgroundColor: 'white',
-    margin: '2em',
     gridArea: gridArea,
+    margin: '2em',
+    padding: '.5em',
+    borderRadius: '8px',
+    textAlign: 'center',
+    backgroundColor: backgroundColor ? backgroundColor : 'inherit',
   };
 
   return(

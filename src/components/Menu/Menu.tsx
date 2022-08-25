@@ -35,19 +35,28 @@ function Menu(props: MenuProps): ReactElement {
   const decrementProps = {
     text: 'decrement',
     handleClick: handleDecrement,
-    gridArea: 'decrement',
+    styling: {
+      gridArea: 'decrement',
+      backgroundColor: 'red',
+    },
   };
   const incrementProps = {
     text: 'increment',
     handleClick: handleIncrement,
-    gridArea: 'increment',
+    styling: {
+      gridArea: 'increment',
+      backgroundColor: 'green',
+    },
   };
   const resetProps = {
     text: 'reset',
     handleClick: handleReset,
-    gridArea: 'reset',
+    styling: {
+      gridArea: 'reset',
+      backgroundColor: 'gray',
+    },
   };
-  
+
   // Component
   return(  
     <div
